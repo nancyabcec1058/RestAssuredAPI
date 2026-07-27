@@ -1,11 +1,8 @@
 name: Rest Assured Automation
 
 on:
+  workflow_dispatch:
   push:
-    branches:
-      - main
-
-  pull_request:
     branches:
       - main
 
@@ -17,14 +14,14 @@ jobs:
 
     steps:
 
-    - name: Checkout code
+    - name: Checkout Repository
       uses: actions/checkout@v4
 
     - name: Setup Java
       uses: actions/setup-java@v4
       with:
-        java-version: '17'
+        java-version: '23'
         distribution: 'temurin'
 
-    - name: Run API Tests
+    - name: Run Tests
       run: mvn clean test
