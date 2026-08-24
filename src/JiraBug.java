@@ -19,7 +19,7 @@ public class JiraBug {
 		String response = given()
 				.header("Content-Type", "application/json")
 				.header("Authorization",
-						"Basic bmFuY3llYzEwNThAZ21haWwuY29tOkFUQVRUM3hGZkdGMEZvbFVidldMOTVOUTdBUXUyMVR4NlFYaEo2WWhEOW5jeGVBbmN0dHltckx1YTVBd2ZyckFFM2ExNUUtRE8zTW56ajBQMU9UaVh5OXNLTFJOcHkzakFvY2hLODJZamVNSkY2MkVJRmFRN1FkN0w0VWZId1hhTGtUc29YR2I2Q0tvdmtndlFoLTVrWUVaSzlsaVE0WjB5TGZBdGcxM0hCelJ5Z21PUTNSSnJ1WT1FRDQxMjkwQQ==")
+						"Basic bm1FRDQxMjkwQQ==")
 				.body(payload.addJiraIssue()).when().post("/rest/api/3/issue").then().assertThat().statusCode(201)
 				.extract().response().asString();
 
@@ -29,14 +29,14 @@ public class JiraBug {
 
 		// Add attachment
 		given().log().all().pathParam("key", issueId).header("X-Atlassian-Token", "no-check").header("Authorization",
-				"Basic bmFuY3llYzEwNThAZ21haWwuY29tOkFUQVRUM3hGZkdGMEZvbFVidldMOTVOUTdBUXUyMVR4NlFYaEo2WWhEOW5jeGVBbmN0dHltckx1YTVBd2ZyckFFM2ExNUUtRE8zTW56ajBQMU9UaVh5OXNLTFJOcHkzakFvY2hLODJZamVNSkY2MkVJRmFRN1FkN0w0VWZId1hhTGtUc29YR2I2Q0tvdmtndlFoLTVrWUVaSzlsaVE0WjB5TGZBdGcxM0hCelJ5Z21PUTNSSnJ1WT1FRDQxMjkwQQ==")
+				"Basic bmSSnJ1WT1FRDQxMjkwQQ==")
 				.multiPart("file", new File("C:\\Users\\nancy\\Downloads\\Postman\\JiraIssue.png")).when()
 				.post("/rest/api/3/issue/{key}/attachments").then().log().all().assertThat().statusCode(200).extract()
 				.response().asString();
 
 		// get issue
 		given().log().all().header("Content-Type", "application/json").header("Authorization",
-				"Basic bmFuY3llYzEwNThAZ21haWwuY29tOkFUQVRUM3hGZkdGMEZvbFVidldMOTVOUTdBUXUyMVR4NlFYaEo2WWhEOW5jeGVBbmN0dHltckx1YTVBd2ZyckFFM2ExNUUtRE8zTW56ajBQMU9UaVh5OXNLTFJOcHkzakFvY2hLODJZamVNSkY2MkVJRmFRN1FkN0w0VWZId1hhTGtUc29YR2I2Q0tvdmtndlFoLTVrWUVaSzlsaVE0WjB5TGZBdGcxM0hCelJ5Z21PUTNSSnJ1WT1FRDQxMjkwQQ==")
+				"Basic bmQxMjkwQQ==")
 				.when().get("/rest/api/3/issue/"+issueId+"").then().log().all().assertThat().statusCode(200)
 				.extract().response().asString();
 		JsonPath j = new JsonPath(response);
