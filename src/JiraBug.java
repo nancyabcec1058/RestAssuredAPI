@@ -47,7 +47,7 @@ public class JiraBug {
 
 		// delete attachment
 		given().log().all().header("Authorization",
-				"Basic bmFuY3llYzEwNThAZ21haWwuY29tOkFUQVRUM3hGZkdGMEZvbFVidldMOTVOUTdBUXUyMVR4NlFYaEo2WWhEOW5jeGVBbmN0dHltckx1YTVBd2ZyckFFM2ExNUUtRE8zTW56ajBQMU9UaVh5OXNLTFJOcHkzakFvY2hLODJZamVNSkY2MkVJRmFRN1FkN0w0VWZId1hhTGtUc29YR2I2Q0tvdmtndlFoLTVrWUVaSzlsaVE0WjB5TGZBdGcxM0hCelJ5Z21PUTNSSnJ1WT1FRDQxMjkwQQ==")
+				"Basic bm0SSnJ1WT1FRDQxMjkwQQ==")
 				.when().delete("/rest/api/3/issue/"+issueId +"").then().log().all().assertThat().statusLine("204 No Content")
 				.extract().response().asString();
 	}
